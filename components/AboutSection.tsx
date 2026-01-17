@@ -57,15 +57,15 @@ export default function AboutSection() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 pt-6">
               <div className="glass rounded-2xl p-6 text-center hover-lift">
-                <h3 className="text-3xl font-bold gradient-text mb-2">5+</h3>
+                <h3 className="text-3xl font-bold gradient-text mb-2">2</h3>
                 <p className="text-gray-400 text-sm">Years Experience</p>
               </div>
               <div className="glass rounded-2xl p-6 text-center hover-lift">
-                <h3 className="text-3xl font-bold gradient-text mb-2">50+</h3>
+                <h3 className="text-3xl font-bold gradient-text mb-2">5</h3>
                 <p className="text-gray-400 text-sm">Projects Done</p>
               </div>
               <div className="glass rounded-2xl p-6 text-center hover-lift">
-                <h3 className="text-3xl font-bold gradient-text mb-2">30+</h3>
+                <h3 className="text-3xl font-bold gradient-text mb-2">8</h3>
                 <p className="text-gray-400 text-sm">Happy Clients</p>
               </div>
             </div>
@@ -77,11 +77,11 @@ export default function AboutSection() {
               <div className="text-5xl mb-4">💻</div>
               <h4 className="text-xl font-semibold">Development</h4>
             </div>
-            <div className="absolute top-1/2 right-0 -translate-y-1/2 glass rounded-3xl p-8 hover-lift animate-float" style={{ animationDelay: '-2s' }}>
+            <div className="absolute top-1/2 right-1/2 -translate-x-1/2 glass rounded-3xl p-8 hover-lift animate-float" style={{ animationDelay: '-2s' }}>
               <div className="text-5xl mb-4">🎨</div>
               <h4 className="text-xl font-semibold">Design</h4>
             </div>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 glass rounded-3xl p-8 hover-lift animate-float" style={{ animationDelay: '-4s' }}>
+            <div className="absolute top-0 left-1/2 -translate-y-1/2 glass rounded-3xl p-8 hover-lift animate-float" style={{ animationDelay: '-4s' }}>
               <div className="text-5xl mb-4">🚀</div>
               <h4 className="text-xl font-semibold">Innovation</h4>
             </div>
