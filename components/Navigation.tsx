@@ -8,6 +8,7 @@ interface NavigationProps {
 
 export default function Navigation({ activeSection }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+    setIsMobileMenuOpen(false)
   }
 
   const navItems = ['home', 'about', 'skills', 'contact']
@@ -33,10 +35,11 @@ export default function Navigation({ activeSection }: NavigationProps) {
         isScrolled ? 'glass py-4 shadow-lg' : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="text-2xl font-bold gradient-text">Portfolio</div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+        <div className="text-xl sm:text-2xl font-bold gradient-text">Portfolio</div>
         
-        <ul className="flex gap-8">
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex gap-4 lg:gap-8">
           {navItems.map((item) => (
             <li key={item}>
               <button
@@ -53,7 +56,44 @@ export default function Navigation({ activeSection }: NavigationProps) {
             </li>
           ))}
         </ul>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden w-10 h-10 flex items-center justify-center text-white"
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden glass mt-4 mx-4 rounded-2xl overflow-hidden">
+          <ul className="flex flex-col">
+            {navItems.map((item) => (
+              <li key={item}>
+                <button
+                  onClick={() => scrollToSection(item)}
+                  className={`w-full text-left px-6 py-4 font-medium transition-colors duration-300 capitalize border-b border-gray-800 last:border-b-0 ${
+                    activeSection === item ? 'text-primary bg-primary/10' : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {item}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   )
 }

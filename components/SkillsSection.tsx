@@ -48,19 +48,19 @@ export default function SkillsSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative py-20 px-6 bg-gray-900"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gray-900"
     >
       <div className={`max-w-7xl mx-auto transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}>
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4 gradient-text">
           Skills & Expertise
         </h2>
-        <p className="text-center text-gray-400 mb-12">
+        <p className="text-center text-gray-400 mb-8 sm:mb-12 text-sm sm:text-base px-4">
           Technologies and tools I work with to bring ideas to life
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {skills.map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} isVisible={isVisible} />
           ))}
